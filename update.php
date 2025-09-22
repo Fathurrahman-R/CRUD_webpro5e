@@ -1,0 +1,21 @@
+<?php
+
+$ProdId = $_POST["Id"];
+$ProdName = $_POST["name"];
+$ProdDesc = $_POST["desc"];
+$ProdPrice = $_POST["price"];
+
+include 'connect.php';
+
+$sql = "UPDATE products SET name='$ProdName', description='$ProdDesc', price='$ProdPrice'
+WHERE id=$ProdId";
+
+if ($conn->query($sql) === TRUE) {
+  // echo "New record created successfully";
+  header('Location: read.php');
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
