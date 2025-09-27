@@ -1,11 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "1234";
-$dbName = "my5eDB";
-
-$conn = new mysqli($servername, $username, $password, $dbName);
+include 'connect.php';
 
 // Create table
 $sql = "CREATE TABLE products(

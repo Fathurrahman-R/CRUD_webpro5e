@@ -1,10 +1,10 @@
 <?php
+include 'connect.php';
 
 $ProdName = $_POST["name"];
 $ProdDesc = $_POST["desc"];
 $ProdPrice = $_POST["price"];
 
-include 'connect.php';
 
 $sql = "INSERT INTO products (name, description, price)
 VALUES ('$ProdName', '$ProdDesc', $ProdPrice)";
