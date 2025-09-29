@@ -2,28 +2,33 @@
 
 $UserID = $_POST["Id"];
 $Username = $_POST["username"];
-$Password = md5($_POST["password"]);
-$nama_lengkap = $_POST["nama_lengkap"];
-$Role = $_POST["role"];
+$oldPassword = md5($_POST["oldpassword"]);
+$newPassword = md5($_POST["newpassword"]);
+$nama_lengkap = $_POST["fullname"];
 
 include 'connect.php';
 
-$sql = "SELECT username from user where username = '$Username'";
+$sql = "SELECT username, password from user where username = '$Username'";
 $result = $conn->query($sql);
+$row = $result->fetch_assoc();
 
-if($result->num_rows>0){
+if($result->num_rows>0 and $row['username']!==$Username){
     echo "Username sudah digunakan!";
     // header('Location: form_register.php');
+} else if($oldPassword!==$row['password']){
+    echo "Password lama salah!";
+} else if($newPassword===$row['password']){
+    echo "Password baru tidak boleh sama dengan password lama!";
 } else {
-  $sql = "UPDATE user SET username='$Username', password='$Password', nama_lengkap='$nama_lengkap', role='$Role'
-  WHERE id=$UserID";
+    $sql = "UPDATE user SET username='$Username', password='$newPassword', fullname='$nama_lengkap'
+    WHERE id=$UserID";
 
-  if ($conn->query($sql) === TRUE) {
-    // echo "New record created successfully";
-    header('Location: read.php');
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+    if ($conn->query($sql) === TRUE) {
+      // echo "New record created successfully";
+      header('Location: read.php');
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 $conn->close();

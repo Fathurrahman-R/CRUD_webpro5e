@@ -22,8 +22,7 @@ if($result->num_rows>0){
     <th>Username</th>
     <th>Password</th>
     <th>Nama Lengkap</th>
-    <th>Role</th>
-    <th>Created</th>
+    <th>Reg Date</th>
     <th>Action</th>
     </tr>";
     $no = 1;
@@ -32,9 +31,8 @@ if($result->num_rows>0){
         "<td>" . $no++ . "</td>" . 
         "<td>" . $row["username"]. "</td>" . 
         "<td>" . $row["password"] . "</td>" . 
-        "<td>" . $row["nama_lengkap"] . "</td>" . 
-        "<td>" . $row["role"] . "</td>" . 
-        "<td>" . $row["created"] . "</td>" . 
+        "<td>" . $row["fullname"] . "</td>" . 
+        "<td>" . $row["reg_date"] . "</td>" . 
         "<td> 
         <a href='form_edit_user.php?id=".$row['id']."'>Edit |</a>
         <a href='delete.php?id=".$row['id']."' onclick=\"return confirm('Apakah kamu yakin ingin menghapus data ini?')\">Delete</a>". 
