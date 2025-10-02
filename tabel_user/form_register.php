@@ -1,6 +1,6 @@
 <h2>Create account</h2>
 <form action="create.php" method="post"> 
-    Username: <br><input type="username" name="username"><br>
+    Username: <br><input type="email" name="username"><br>
     Password: <br><input type="password" name="password"><br>
     Confirm Password: <br><input type="password" name="confpassword"><br>
     Nama Lengkap: <br><input type="text" name="fullname"><br>

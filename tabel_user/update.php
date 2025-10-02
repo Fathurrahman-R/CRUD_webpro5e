@@ -5,6 +5,8 @@ $Username = $_POST["username"];
 $oldPassword = md5($_POST["oldpassword"]);
 $newPassword = md5($_POST["newpassword"]);
 $nama_lengkap = $_POST["fullname"];
+$role = $_POST["role"];
+$status = $_POST["status"];
 
 include 'connect.php';
 

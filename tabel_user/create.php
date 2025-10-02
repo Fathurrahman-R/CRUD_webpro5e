@@ -7,7 +7,7 @@ $Password = md5($_POST["password"]);
 $ConfPassword = md5($_POST["confpassword"]);
 $nama_lengkap = $_POST["fullname"];
 
-$sql = "SELECT username from user where username = '$Username'";
+$sql = "SELECT username from users where username = '$Username'";
 $result = $conn->query($sql);
 if($result->num_rows>0){
     echo "Username sudah digunakan!";
@@ -15,7 +15,7 @@ if($result->num_rows>0){
 }else if ($Password!==$ConfPassword){
     echo "Password tidak sama!";
 }else{
-    $sql = "INSERT INTO user (username, password, fullname)
+    $sql = "INSERT INTO users (username, password, fullname)
     VALUES ('$Username', '$Password', '$nama_lengkap')";
 
     if ($conn->query($sql) === TRUE) {

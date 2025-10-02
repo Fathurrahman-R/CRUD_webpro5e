@@ -6,7 +6,7 @@ include 'connect.php';
 // $sql = "SELECT * FROM products WHERE id = 1";
 
 // Read one record by name
-$sql = "SELECT * FROM user";
+$sql = "SELECT * FROM users";
 
 // Read one record by price
 // $sql = "SELECT * FROM products WHERE price = 150000";
@@ -22,7 +22,10 @@ if($result->num_rows>0){
     <th>Username</th>
     <th>Password</th>
     <th>Nama Lengkap</th>
+    <th>Role</th>
+    <th>Status</th>
     <th>Reg Date</th>
+    <th>Modified</th>
     <th>Action</th>
     </tr>";
     $no = 1;
@@ -32,7 +35,10 @@ if($result->num_rows>0){
         "<td>" . $row["username"]. "</td>" . 
         "<td>" . $row["password"] . "</td>" . 
         "<td>" . $row["fullname"] . "</td>" . 
+        "<td>" . $row["role"] . "</td>" . 
+        "<td>" . $row["status"] . "</td>" . 
         "<td>" . $row["reg_date"] . "</td>" . 
+        "<td>" . $row["modified"] . "</td>" . 
         "<td> 
         <a href='form_edit_user.php?id=".$row['id']."'>Edit |</a>
         <a href='delete.php?id=".$row['id']."' onclick=\"return confirm('Apakah kamu yakin ingin menghapus data ini?')\">Delete</a>". 
