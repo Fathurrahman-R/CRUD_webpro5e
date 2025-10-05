@@ -2,11 +2,13 @@
 // Create Connection
 include 'connect.php';
 
+$role = $_GET['role'];
 $sql = "SELECT * FROM users";
 
 $result = $conn->query($sql);
 
-echo "<a href='registration.php'>Add User Account</a><br><br>";
+echo "<a href='registration.php?role=$role'>Add User Account</a><br><br>";
+echo "<a href='../tabel_product/read.php?role=$role'>Product</a><br><br>";
 
 if($result->num_rows>0){
     echo "<table border=1>

@@ -2,15 +2,17 @@
 // Create Connection
 include 'connect.php';
 
+// Read one record by id
+// $sql = "SELECT * FROM products WHERE id = 1";
+
 // Read one record by name
 $sql = "SELECT * FROM products";
 
+// Read one record by price
+// $sql = "SELECT * FROM products WHERE price = 150000";
+
 $result = $conn->query($sql);
 
-echo "<a href='form_input_product.php'>Add product</a><br><br>";
-if($_GET['role']==="admin"){
-    echo "<a href='../usermgmt/view_all_account.php?role=admin'>Users</a><br><br>";
-}
 
 if($result->num_rows>0){
     echo "<table border=1>
@@ -19,7 +21,6 @@ if($result->num_rows>0){
     <th>Name</th>
     <th>Description</th>
     <th>Price</th>
-    <th>Created</th>
     <th>Action</th>
     </tr>";
     $no = 1;
@@ -29,10 +30,8 @@ if($result->num_rows>0){
         "<td>" . $row["name"]. "</td>" . 
         "<td>" . $row["description"] . "</td>" . 
         "<td>" . $row["price"] . "</td>" . 
-        "<td>" . $row["created"] . "</td>" . 
         "<td> 
-        <a href='form_edit_product.php?id=".$row['id']."'>Edit |</a>
-        <a href='delete.php?id=".$row['id']."' onclick=\"return confirm('Apakah kamu yakin ingin menghapus data ini?')\">Delete</a>". 
+        <a href='form_edit_product.php?id=".$row['id']."'>Buy</a>". 
         "</td>" . 
         "</tr>";
 

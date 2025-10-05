@@ -21,8 +21,14 @@ else{
     VALUES ('$Username', '$Password', '$nama_lengkap', '$role')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-        // header('Location: form_login.php');
+       switch($_GET['role']){
+            case "admin":
+                header('Location: view_all_account.php');
+                break;
+            case "":
+                header('Location: login.php');
+                break;
+       }
     } else {
          echo "Error: " . $sql . "<br>" . $conn->error;
     }

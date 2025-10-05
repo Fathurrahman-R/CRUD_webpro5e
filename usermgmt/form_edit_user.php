@@ -26,5 +26,14 @@ $row = $result->fetch_assoc();
         <?= ($row['role']==="visitor")?"selected":""; ?>
         >Visitor</option>
     </select><br>
+    Status:
+    <select name="status">
+        <option value="ACTIVE" 
+        <?= ($row['status']==="ACTIVE")?"selected":""; ?>
+            >Active</option>
+        <option value="INACTIVE"
+        <?= ($row['status']==="INACTIVE")?"selected":""; ?>
+        >Inactive</option>
+    </select><br>
     <input type="submit" value="Update User">
 </form>
